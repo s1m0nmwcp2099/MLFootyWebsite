@@ -11,6 +11,7 @@ namespace MLFootyWebsite.Data
         {
             List<Fixture> predFixtures = new List<Fixture>();
             string dataFile = "Data/CombinedPredictions.csv";
+            //check
             //var dataFile = Server.MapPath("../App_Data/CombinedPredictions.csv");
 
             using (StreamReader sr = new StreamReader(dataFile)){
