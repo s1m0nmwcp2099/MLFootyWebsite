@@ -10,7 +10,8 @@ namespace MLFootyWebsite.Data
         public List<Fixture> GetPredFixtures()
         {
             List<Fixture> predFixtures = new List<Fixture>();
-            string dataFile = "Data/CombinedPredictions.csv";
+            //string dataFile = "Data/CombinedPredictions.csv";
+            string dataFile = ($"{Directory.GetCurrentDirectory()}/wwwroot/CombinedPredictions.csv");
             //var dataFile = Server.MapPath("../App_Data/CombinedPredictions.csv");
 
             using (StreamReader sr = new StreamReader(dataFile)){
@@ -20,7 +21,10 @@ namespace MLFootyWebsite.Data
                     if (cells[0] != "league"){
                         Fixture thisFx = new Fixture();
                         thisFx.FxLeague = cells[0];
-                        thisFx.FxDate = Convert.ToDateTime(cells[1]);
+
+                        string strDtTm = cells[1];
+                        string[] dtTmCells = strDtTm.Split(',');
+                        thisFx.FxDate = Convert.ToDateTime(dtTmCells[0]);
                         thisFx.FxHomeTeam = cells[2];
                         thisFx.FxAwayTeam = cells[3];
                         thisFx.FxHomeProb = RndFn(Convert.ToSingle(cells[4]) *100, 1) + " %";
