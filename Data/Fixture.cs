@@ -5,7 +5,7 @@ namespace MLFootyWebsite.Data
     public class Fixture
     {
         public string FxLeague { get; set; }
-        public DateTime FxDate { get; set; }
+        public string FxDate { get; set; }
         public string FxHomeTeam { get; set; }
         public string FxAwayTeam { get; set; }
         public string FxHomeProb { get; set; }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Security.Policy;
 
@@ -21,10 +22,8 @@ namespace MLFootyWebsite.Data
                     if (cells[0] != "league"){
                         Fixture thisFx = new Fixture();
                         thisFx.FxLeague = cells[0];
-
-                        string strDtTm = cells[1];
-                        string[] dtTmCells = strDtTm.Split(',');
-                        thisFx.FxDate = Convert.ToDateTime(dtTmCells[0]);
+                        //thisFx.FxDate = Convert.ToDateTime(cells[1]);
+                        thisFx.FxDate = DateTime.Parse(cells[1]).ToString("ddd, dd-MM-yyyy");
                         thisFx.FxHomeTeam = cells[2];
                         thisFx.FxAwayTeam = cells[3];
                         thisFx.FxHomeProb = RndFn(Convert.ToSingle(cells[4]) *100, 1) + " %";
