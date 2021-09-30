@@ -23,7 +23,8 @@ namespace MLFootyWebsite.Data
                         Fixture thisFx = new Fixture();
                         thisFx.FxLeague = cells[0];
                         //thisFx.FxDate = Convert.ToDateTime(cells[1]);
-                        thisFx.FxDate = DateTime.Parse(cells[1]).ToString("ddd, dd-MM-yyyy");
+                        string[] dtCells = cells[1].Split(' ');
+                        thisFx.FxDate = dtCells[0];
                         thisFx.FxHomeTeam = cells[2];
                         thisFx.FxAwayTeam = cells[3];
                         thisFx.FxHomeProb = RndFn(Convert.ToSingle(cells[4]) *100, 1) + " %";
